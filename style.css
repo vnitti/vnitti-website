@@ -1,0 +1,115 @@
+*{
+    font-family: 'Hack', monospace;
+    font-size: 15px;
+    color: rgb(29, 29, 29);
+    box-sizing: border-box;
+    background-color: rgb(232, 237, 241);
+}
+
+body {
+    height: 100vh;
+    max-width: 960px
+}
+
+main {
+    margin-top: 150px;
+    margin-left: 200px;
+    left: 200px;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+section {
+    padding: 50px;
+}
+
+.gallery {
+    padding: 0;
+}
+
+h2, h3 {
+    margin-bottom: 30px;
+}
+
+
+header #title {
+    position: fixed;
+    top: 90px;
+    left: 40px;
+    width: 200px;
+}
+
+.thumbnail-img {
+    filter: grayscale(100%);
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 6px;
+    width: 110px;
+    height: 110px;
+}
+
+.thumbnail-img:hover {
+    filter: grayscale(0);
+}
+
+.popup-img {
+    position: fixed;
+    top: 0; left: 0;
+    background: rgba(0,0,0,.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.popup-img .ex{
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.popup-img img {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .popup-img img {
+        width: 95%;
+    }
+}
+
+nav {
+    font-weight: 1000;
+    position: fixed;
+    left: 0;
+    top: 200px;
+    height: 100%;
+    background-color: transparent;
+}
+
+nav .nav-li {
+    user-select: none;
+    text-decoration: none;
+}
+
+nav ul li {
+    margin-top: 9px;
+    list-style: none;
+}
+
+nav ul .nav-li-selected {
+    padding-left: 10px;
+    transition: 0.1s;
+}
