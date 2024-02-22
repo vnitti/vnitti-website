@@ -2,8 +2,13 @@ import { generateWo, startUnlocked, selectList } from "./woGenerator.js";
 import { playClicked, pauseClicked, stopClicked } from "./clock.js";
 
 let workOut;
+/*
+workOut = generateWo();
+
+console.log(workOut);*/
 
 let ul = document.getElementById("ul-wo");
+let types = document.getElementById("ul-types");
 let startBtn = document.getElementById("start-btn");
 
 let pauseBtn = document.getElementById("pause-btn");
@@ -41,6 +46,14 @@ let startClicked = () => {
     }
 };
 
+
+let typesClicked = event => {
+    selectList(event);
+    generateWo();
+};
+
+
+types.addEventListener('click', event => typesClicked(event));
 resetBtn.addEventListener('click', () => stopClicked());
 pauseBtn.addEventListener('click', () => pauseClicked());
 startBtn.addEventListener('click', () => startClicked());

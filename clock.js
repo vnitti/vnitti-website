@@ -12,6 +12,8 @@ let hrs = 0;
 let mins = 0;
 let secs = 0;
 
+let workOutList = Array;
+
 
 //botón de start
 let playClicked = () => {

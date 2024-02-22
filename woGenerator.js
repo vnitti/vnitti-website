@@ -14,8 +14,7 @@ let workOutList = Array;
 
 //determina el el id del radio que se marcó y luego, según eso,
 //determina la lista a la que se igualará el array workOutList
-//v2
-let selectList = () => {
+let selectList = event => {
     let selected;
     const clickedRadio = event.target;
     startUnlocked = true;
@@ -40,36 +39,6 @@ let selectList = () => {
 };
 
 
-//v1
-/*
-let selectList = () => {
-    let selected;
-    types.addEventListener('change', event => {
-        const clickedRadio = event.target;
-        startUnlocked = true;
-    
-        if (clickedRadio.checked) {
-            selected =  clickedRadio.id;
-        }
-
-        switch(selected) {
-            case "pull-input":
-                workOutList = pullList;
-                break;
-            case "push-input":
-                workOutList = pushList;
-                break;
-            case "leg-input":
-                workOutList = legList;
-                break;
-            default:
-                console.log("Please select a workout type.");
-        }
-    })
-};
-*/
-selectList();
-
 //genera un número aleatorio entre 0 y la cantidad total de posiciones del array workOutList
 let randomNumber = () => {
     return Math.floor(Math.random() * workOutList.length);
@@ -91,15 +60,16 @@ let generateWo = () => {
             } while (wo.some(exercise => workOutList[rn] === exercise));
         }
         wo[i] = workOutList[rn];
-        //console.log(`${i+1}: ${wo[i]}`);
+        console.log(`${i+1}: ${wo[i]}`);
     }
     return wo;
 };
 
+
 export { 
     generateWo,
-    selectList,
     startUnlocked,
+    selectList,
     pullList,
     pushList,
     legList
