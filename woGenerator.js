@@ -4,11 +4,11 @@
 import { pullList, pushList, legList } from './lists.js';
 
 //HTML elementos generales
-let types = document.getElementById("ul-types");
-let startUnlocked = false;
+
 
 //variales globales
 let workOutList = Array;
+let startUnlocked = false;
 
 //=====FUNCIONES=====
 
@@ -36,6 +36,17 @@ let selectList = event => {
         default:
             console.log("Please select a workout type.");
     }
+};
+
+
+//
+let restExercises = () => {
+
+};
+
+
+let restSeries = () => {
+
 };
 
 
@@ -74,3 +85,29 @@ export {
     pushList,
     legList
 };
+
+
+
+
+
+
+/*
+let boolean = true;
+let sum;
+let finalArray;
+
+workOut.length es 4
+numberOfSeries es 3,
+
+//lenght del for workOut is workOut.length*2
+for serie ciclo 0:
+    for workOut*2 ciclo 0:
+        if(i===(for.lenght-1))
+            finalArray.push(restSerie)
+            return;
+        if(boolean)
+            finalArray.push(ejercicio 1)
+        if(!boolean)
+            finalArray.push(restExe)
+        !boolean //boolean es ahora falso
+*/

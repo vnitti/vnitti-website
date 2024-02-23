@@ -1,5 +1,5 @@
 //HTML elementos del reloj
-let timeDisplay = document.getElementById("timeDisplay");
+let timeDisplay = document.getElementById("clockDisplay");
 //let pauseBtn = document.getElementById("pause-btn");
 //let resetBtn = document.getElementById("reset-btn");
 
@@ -12,11 +12,9 @@ let hrs = 0;
 let mins = 0;
 let secs = 0;
 
-let workOutList = Array;
-
 
 //botón de start
-let playClicked = () => {
+let clockStarted = () => {
     if(paused) {
         paused = false;
         startTime = Date.now() - elapsedTime;
@@ -26,7 +24,7 @@ let playClicked = () => {
 
 
 //botón de pause
-let pauseClicked = () => {
+let clockPaused = () => {
     if(!paused) {
         paused = true;
         elapsedTime = Date.now() - startTime;
@@ -36,7 +34,7 @@ let pauseClicked = () => {
 
 
 //botón de reset
-let stopClicked = () => {
+let clockStopped = () => {
     paused = true;
     clearInterval(intervalId);
     startTime = 0;
@@ -58,9 +56,9 @@ function updateTime() {
     mins = Math.floor((elapsedTime / (1000 * 60)) % 60);
     hrs = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
     
-    secs = extraZero(secs);
-    mins = extraZero(mins);
-    hrs = extraZero(hrs);
+    secs = pad(secs);
+    mins = pad(mins);
+    hrs = pad(hrs);
 
     timeDisplay.textContent = `${hrs}:${mins}:${secs}`;
 };
@@ -68,12 +66,12 @@ function updateTime() {
 
 //antepone un "0" extra a la unidad de tiempo si este es de
 //solo dígito
-function extraZero(unit) {
+function pad(unit) {
     return (("0") + unit).length > 2 ? unit : "0" + unit;
 };
 
 export {
-    playClicked,
-    pauseClicked,
-    stopClicked
+    clockStarted,
+    clockPaused,
+    clockStopped
 };
