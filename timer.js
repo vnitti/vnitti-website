@@ -1,68 +1,84 @@
+let restSec = Math.floor(document.getElementById("rest-ex-sec").value);
+let restMin = Math.floor(document.getElementById("rest-ex-min").value);
 
+let totalSeconds = (restMin * 60) + restSec;
+let seconds = totalSeconds;
 let timerInterval;
 let isPaused = false;
+let initialTime;
 
 
-function startTimer(sec, totalSec, timerN) {
-    console.log(`startTimer inside timer.js`);
+function start(timer) {
     if (!timerInterval) {
-        timerInterval = setInterval(updateTimer(sec, totalSec, timerN), 1000);
+        timerInterval = setInterval(()=>update(timer), 1000);
     }
-}
+};
 
-function pauseTimer() {
+
+function pause() {
     isPaused = true;
-}
+};
 
-function resumeTimer() {
+
+function resume() {
     isPaused = false;
-}
+};
 
-function stopTimer(sec, totalSec) {
+
+function stop(timer) {
     clearInterval(timerInterval);
     timerInterval = null;
-    resetTimer(sec, totalSec);
-}
+    reset(timer);
+    console.log("stop");
+};
+
+
 //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-function updateTimer(sec, totalSec, timerId) {
+function update(timer) {
     if (!isPaused) {
-        if (sec > 0) {
-            sec--;
-            console.log(`sec now is: ${sec}`);
+        if (seconds > 0) {
+            seconds--;
+            console.log("sss");
         } else {
-            stopTimer(sec, totalSec);
-            console.log("timer has been stopped");
+            stop(timer);
+            timer.innerHTML = "00:00:00";
             return;
         }
 
-        const formattedTime = pad(Math.floor(sec / 3600)) + ':' +
-                              pad(Math.floor((sec % 3600) / 60)) + ':' +
-                              pad(sec % 60);
+        const formattedTime = pad(Math.floor(seconds / 3600)) + ':' +
+                              pad(Math.floor((seconds % 3600) / 60)) + ':' +
+                              pad(seconds % 60);
 
-        document.getElementById(timerId).innerHTML = formattedTime;
-        console.log("end of updateTimer");
+        timer.innerHTML = formattedTime;
+        console.log("end of update");
     }
-}
+};
 //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-function resetTimer(sec, totalSec) {
-    sec = totalSec;
-    document.getElementById(timerId).innerHTML = formatTime(totalSec);
-}
+
+
+function reset(timer) {
+    seconds = totalSeconds;
+    timer.innerHTML = formatTime(totalSeconds);
+};
+
 
 function pad(value) {
     return value < 10 ? '0' + value : value;
-}
+};
 
-function formatTime(sec) {
-    return pad(Math.floor(sec / 3600)) + ':' +
-           pad(Math.floor((sec % 3600) / 60)) + ':' +
-           pad(sec % 60);
-}
 
+function formatTime(seconds) {
+    return pad(Math.floor(seconds / 3600)) + ':' +
+           pad(Math.floor((seconds % 3600) / 60)) + ':' +
+           pad(seconds % 60);
+};
+
+initialTime = formatTime(seconds);
 
 export {
-    startTimer,
-    pauseTimer,
-    resumeTimer,
-    stopTimer,
-};
+    start,
+    pause,
+    resume,
+    stop,
+    initialTime
+}

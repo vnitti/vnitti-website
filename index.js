@@ -1,10 +1,11 @@
 import { generateWo, startUnlocked, selectList } from "./woGenerator.js";
 import { clockStarted, clockPaused, clockStopped } from "./clock.js";
 import {
-    startTimer as timerStarted,
-    pauseTimer as timerPaused,
-    resumeTimer as timerResumed,
-    stopTimer as timerStopped,
+    start as timer1Started,
+    pause as timer1Paused,
+    resume as timer1Resumed,
+    stop as timer1Stopped,
+    initialTime
 } from "./timer.js";
 
 //let workOut;
@@ -21,23 +22,11 @@ let startBtn = document.getElementById("start-btn");
 let pauseBtn = document.getElementById("pause-btn");
 let resetBtn = document.getElementById("reset-btn");
 
-let restExeSec = Math.floor(document.getElementById("rest-ex-sec").value);
-let restExeMin = Math.floor(document.getElementById("rest-ex-min").value);
-let restSerSec = Math.floor(document.getElementById("rest-se-sec").value);
-let restSerMin = Math.floor(document.getElementById("rest-se-min").value);
-
-let totalSecondsExe = (restExeMin * 60) + restExeSec;
-let secondsExe = totalSecondsExe;
-let totalSecondsSer = (restSerMin * 60) + restSerSec;
-let secondsSer = totalSecondsSer;
+let timer1 = document.getElementById("timer1");
+let timer2 = document.getElementById("timer2");
 
 
-console.log(totalSecondsExe);
-console.log(totalSecondsSer);
-console.log(secondsExe);
-console.log(secondsSer);
-
-
+timer1.textContent = initialTime;
 
 
 //===FUNCIONES===
@@ -68,8 +57,8 @@ let startClicked = () => {
     if(startUnlocked) {
         emptyUl();
         clockStarted();
-        timerStarted(secondsExe, totalSecondsExe, "timer1");
-        timerStarted(secondsSer, totalSecondsSer, "timer2");
+        timer1Started(timer1);
+        timer1Resumed();
     }
 };
 
@@ -80,9 +69,21 @@ let typesClicked = event => {
 };
 
 
+let quitClicked = () => {
+    timer1Stopped(timer1);
+    clockStopped();
+};
+
+
+let pauseClicked = () => {
+    timer1Paused();
+    clockPaused();
+};
+
+
 types.addEventListener('click', event => typesClicked(event));
-resetBtn.addEventListener('click', () => clockStopped());
-pauseBtn.addEventListener('click', () => clockPaused());
+resetBtn.addEventListener('click', () => quitClicked());
+pauseBtn.addEventListener('click', () => pauseClicked());
 startBtn.addEventListener('click', () => startClicked());
 
 

@@ -39,17 +39,6 @@ let selectList = event => {
 };
 
 
-//
-let restExercises = () => {
-
-};
-
-
-let restSeries = () => {
-
-};
-
-
 //genera un número aleatorio entre 0 y la cantidad total de posiciones del array workOutList
 let randomNumber = () => {
     return Math.floor(Math.random() * workOutList.length);
