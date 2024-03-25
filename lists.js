@@ -32,6 +32,8 @@ const legList = [
     'leg wo 4',
     'leg wo 5',
     'leg wo 6',
+    'leg wo 7',
+    'leg wo 8',
 ];
 
 export { pullList, pushList, legList };

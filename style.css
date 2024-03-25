@@ -153,3 +153,29 @@ nav .nav-li {
 #leg {
     font-size: 15px;
 }
+
+
+
+
+/*============*/
+/*ACTIVE ITEM*/
+#active {
+    background-color: rgb(175, 180, 185);
+}
+
+input[type="number"] {
+    /* Add custom styles */
+    width: 50px;
+
+    /* Remove default number input arrows */
+    -webkit-appearance: none;
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: textfield; /* Override browser styles */
+}
+
+/* Style the number input arrows separately */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    -webkit-appearance: none;
+}

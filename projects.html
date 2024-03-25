@@ -35,76 +35,84 @@
                 </div>
 
                 <div>
-                    <h2>Select your workout type: </h2>
-                    <ul id="ul-types">
-                        <li>
-                            <input type="radio" name="types" class="types" id="pull-input" value="pull">Pull day</option>
-                            <label for="pull-input"></label>
-                        </li>
+                    <fieldset id="fieldset-types">                
+                        <legend><h2>Select your workout type: </h2></legend>
 
-                        <li>
-                            <input type="radio" name="types" class="types" id="push-input" value="push">Push day</option>
-                            <label for="push-input"></label>                          
-                        </li>
-
-                        <li>
-                            <input type="radio" name="types" class="types" id= "leg-input" value="leg">Leg day</option>
-                            <label for="leg-input"></label>                 
-                        </li>
-                    </ul>
+                        <input id="pull-input" type="radio" value="pull-input" name="types" class="wo-type">
+                        <label for="pull-input">Pull Day</label>
+                        <br>                        
+                        <input id="push-input" type="radio" value="push-input" name="types" class="wo-type">
+                        <label for="push-input">Push Day</label>                          
+                        <br>           
+                        <input id="leg-input" type="radio"  value="leg-input" name="types" class="wo-type">
+                        <label for="leg-input">Leg Day</label>                                       
+                    </fieldset>
                 </div>
-
+                <br>
                 <div>
-                    <h2>Number of exercises for this workout: </h2>
-                    <label for="number-exercises"></label>
-                    <input type="number" id="number-exercises" min="2" max="8" value="4">                 
+                    <h2>Number of exercises per set: </h2>
+                    <label for="number-exercises"></label></legend>
+                    <input type="number" id="number-exercises" class="number-input" min="1" max="8" value="4">                                                    
                 </div>
+                <br>
+                <br>
+                <div>
+                    <h2>Number of sets: </h2>
+                    <label for="number-rounds"></label></legend>
+                    <input type="number" id="number-rounds" class="number-input" min="1" max="16" value="4">                                                    
+                </div>
+                <br>
                 <br>
                 <div>
                     <h2>Rest between exercises: </h2>
-
-                    <label for="rest-ex-min"></label>
-                    <input type="number" id="rest-ex-min" min="0" max="10" value="00">
+                    <input type="number"  class="number-input" id="input-exe-min" min="0" max="10" value="00">
+                    <label for="input-exe-min"></label>
                     <span>:</span>
-                    <label for="rest-se-sec"></label>
-                    <input type="number" id="rest-ex-sec" min="0" max="59" value="15">
+                    <input type="number"  class="number-input" id="input-exe-sec" min="0" max="59" value="03">
+                    <label for="input-exe-sec"></label>
                 </div>
+                <br>
                 <br>
                 <div>
                     <h2>Rest between series: </h2>
-
-                    <label for="rest-se-min"></label>
-                    <input type="number" id="rest-se-min" min="0" max="10" value="02">
+                    <label for="input-ser-min"></label>
+                    <input type="number" class="number-input" id="input-ser-min" min="0" max="10" value="02">
                     <span>:</span>
-                    <label for="rest-se-sec"></label>
-                    <input type="number" id="rest-se-sec" min="0" max="59" value="30">
+                    <label for="input-ser-sec"></label>
+                    <input type="number" class="number-input" id="input-ser-sec" min="0" max="59" value="30">
                 </div>
-
+                <br>
+                <br>
                 <div>
-                    <br>
-                    <br>
-                    <span id="wo-today">Your work out is: </span>
+                    <button id="generate">Generate Workout</button>
+                    <p id="wo-today">Your work out is: </p>
                     <ul id="ul-wo"></ul>
                 </div>
                 <br>
                 <br>
                 <div>
                     <button id="start-btn">=== S T A R T ===</button>
+                    <button id="next-btn">Next</button>
                 </div>
 
                 <div id="clockContainer">
                     <div>
+                        <button id="resume-btn" class="timer-btn">Resume</button>
                         <button id="pause-btn" class="timer-btn">Pause</button>
                         <button id="reset-btn" class="timer-btn">Quit</button>
                     </div>
                     <br>
                     <div>
                         <span>Elapsed time: </span>
-                        <span id="clockDisplay">00:00:00</span>
-                        <p>Timer: </p>
-                        <span id="timer1">00:00:00</span>
-                        <p>Timer: </p>
-                        <span id="timer2">00:00:00</span>
+                        <span id="chrono-display">00:00:00:00</span>
+                        
+
+                        <span id="timer-ser-display"></span>
+
+
+                        <span id="timer-exe-display"></span>
+
+                        <span id="active"></span>
                     </div>
                     
                 </div>

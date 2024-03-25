@@ -5,25 +5,16 @@ import { pullList, pushList, legList } from './lists.js';
 
 //HTML elementos generales
 
-
 //variales globales
 let workOutList = Array;
-let startUnlocked = false;
+let number = 0;
 
-//=====FUNCIONES=====
+//=====FUNCIONES======
 
 //determina el el id del radio que se marcó y luego, según eso,
 //determina la lista a la que se igualará el array workOutList
-let selectList = event => {
-    let selected;
-    const clickedRadio = event.target;
-    startUnlocked = true;
-    
-    if (clickedRadio.checked) {
-        selected =  clickedRadio.id;
-    }
-
-    switch(selected) {
+function selectList(event) {
+    switch(event.target.id) {
         case "pull-input":
             workOutList = pullList;
             break;
@@ -34,21 +25,22 @@ let selectList = event => {
             workOutList = legList;
             break;
         default:
-            console.log("Please select a workout type.");
-    }
+            console.error("ERROR: Please select a workout type.");
+    };
 };
 
 
 //genera un número aleatorio entre 0 y la cantidad total de posiciones del array workOutList
-let randomNumber = () => {
+function randomNumber() {
     return Math.floor(Math.random() * workOutList.length);
 };
 
 
 //genera y retorna el workout
-let generateWo = () => {
-    let rn;
-    let number = parseFloat(document.getElementById("number-exercises").value);
+function generateWo() {
+    //console.log("generateWo activated");
+    let rn = null;
+    number = parseFloat(document.getElementById("number-exercises").value);
     let wo = Array(number);
     
     for (let i=0; i<number; i++) {
@@ -68,35 +60,5 @@ let generateWo = () => {
 
 export { 
     generateWo,
-    startUnlocked,
-    selectList,
-    pullList,
-    pushList,
-    legList
+    selectList
 };
-
-
-
-
-
-
-/*
-let boolean = true;
-let sum;
-let finalArray;
-
-workOut.length es 4
-numberOfSeries es 3,
-
-//lenght del for workOut is workOut.length*2
-for serie ciclo 0:
-    for workOut*2 ciclo 0:
-        if(i===(for.lenght-1))
-            finalArray.push(restSerie)
-            return;
-        if(boolean)
-            finalArray.push(ejercicio 1)
-        if(!boolean)
-            finalArray.push(restExe)
-        !boolean //boolean es ahora falso
-*/
