@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
         anchor = button.querySelector("a");
         let anchorHref = anchor.href;
 
+        console.log(anchorHref);
+        console.log(currentPage);
+
         if (anchorHref === currentPage) {
             button.classList.add("active-menu-btn");
             anchor.classList.add("active-menu-a");
