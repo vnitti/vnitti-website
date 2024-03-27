@@ -25,7 +25,7 @@ import {
 } from "./timerRestSerie.js";
 
 import {
-    boolRemove
+    objBools
 } from "./index.js";
 
 
@@ -112,10 +112,10 @@ function next() {
 
     //si se esta en la última serie
     if (counterForSeries === rounds-1) {
-        if(boolRemove.value) {
+        if(objBools.removeLastLi) {
             let lastLi = exercisesUl.lastElementChild;
             lastLi.remove();
-            boolRemove.value = false;
+            objBools.removeLastLi = false;
         };
         
         //si se está en la última serie y en la penúltima posicion de la lista
@@ -255,7 +255,9 @@ export {
     unmarkRadioButton,
     disableInputs,
     enableInputs,
-    types
+    types,
+    isTimerExe,
+    isTimerSer
 };
 
 

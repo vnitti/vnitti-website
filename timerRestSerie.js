@@ -1,3 +1,7 @@
+import {
+    isTimerSer
+} from "./workoutGenerator.js";
+
 let restSec = document.getElementById("input-ser-sec");
 let restMin = document.getElementById("input-ser-min");
 let initialSecs = Math.floor(restSec.value) + (Math.floor(restMin.value) * 60);
@@ -58,7 +62,7 @@ function updateTime() {
 };
 
 function resume() {
-    if (isPaused) {
+    if (isPaused && isTimerSer) {
         console.log("timerSer resumed");
         interval = setInterval(updateTime, 10);
         isPaused = false;
@@ -74,10 +78,12 @@ function stop() {
 };
 
 function pause() {
-    console.log("timerSer paused");
-    clearInterval(interval);
-    startTime = currentTime;
-    isPaused = true;
+    if (isTimerSer) {
+        console.log("timerSer paused");
+        clearInterval(interval);
+        startTime = currentTime;
+        isPaused = true;
+    };
 };
 
 function makeItZero() {

@@ -1,3 +1,7 @@
+import {
+    isTimerExe
+} from "./workoutGenerator.js";
+
 let restSec = document.getElementById("input-exe-sec");
 let restMin = document.getElementById("input-exe-min");
 let initialSecs = Math.floor(restSec.value) + (Math.floor(restMin.value) * 60);
@@ -51,18 +55,22 @@ function updateTime() {
 };
 
 function pause() {
-    console.log("timerExe paused");
-    clearInterval(interval);
-    startTime = currentTime;
-    isPaused = true;
+    if (isTimerExe) {
+        console.log("timerExe paused");
+        clearInterval(interval);
+        startTime = currentTime;
+        isPaused = true;  
+    };
 };
 
 function resume() {
-    if (isPaused) {
+    if (isPaused && isTimerExe) {
         console.log("timerExe resumed");
         interval = setInterval(updateTime, 10);
         isPaused = false;
-    };
+    } else {
+        console.log("it worked");
+    }
 };
 
 function stop() {

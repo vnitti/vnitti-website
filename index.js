@@ -34,7 +34,9 @@ let nextBtn = document.getElementById("next-btn");
 let generateBtn = document.getElementById("generate");
 let eventt = null;
 let isFinish = false;
-let boolRemove = {value: true}
+let objBools = {
+    removeLastLi: true
+};
 
 startBtn.disabled = true;
 pauseBtn.disabled = true;
@@ -81,7 +83,7 @@ startBtn.addEventListener(
 nextBtn.addEventListener(
     'click',
     () => {
-        console.log(boolRemove.value);
+        console.log(objBools.removeLastLi);
         next();
     }
 );
@@ -94,6 +96,7 @@ pauseBtn.addEventListener(
         chronoPause();
         resumeBtn.disabled = false;
         pauseBtn.disabled = true;
+        nextBtn.disabled = true;
     }
 );
 
@@ -116,7 +119,7 @@ resetBtn.addEventListener(
         if(isFinish){
             resetBtn.innerText = "Quit";
             alert("=== You Made It!=== \nCongratulations on finishing the workout.\n:)");
-            boolRemove.value = true;
+            objBools.removeLastLi = true;
             isFinish = false;
         };
     }
@@ -130,6 +133,9 @@ resumeBtn.addEventListener(
         if (resumeSignalSer) timerSerResume();
         pauseBtn.disabled = false;
         resumeBtn.disabled = true;
+        if(!isFinish) {
+            nextBtn.disabled = false;
+        };
     }
 );
 
@@ -143,35 +149,17 @@ document.addEventListener('finish', () => {
 });
 
 export {
-    boolRemove
+    objBools
 }
 
 
 
 
-
-//BOTÓN "START"
-//bloqueado hasta que se haya generado el workout
-//al pulsarlo, inicia/abilita el cronómetro, timers y mostrador de workout
-//una vez pulsado, su nombre cambia a "Next"
-//BOTÓN DE NEXT
-//salta al siguiente elemento de la lista en el mostrador de workout
-//sustituye al botón de "Start" una vez que este se haya pulsado
-//al encontrarse en el último elemento de la lista del mostrador de
-//workout, es sustituido por el botón de "=== FINISH ==="
-//BOTÓN DE FINISH
-//al pusarlo, el programa se reinicia por completo. Misma función del
-//botón "Quit"
-
-
-//MOSTRADOR DE WORKOUT
-//indica la lista de ejercicios y descansos y en cuál de ellos nos 
-//encontramos actualmente. Para ello, el código pone en highlight dicho
-//elemento
-
-
-//BOTÓN "QUIT"
-//al pusarlo, el programa se reinicia por completo
-
-//Siguientes pasos:
+//SIGUIENTES PASOS:
 //number of sets visible en el display
+
+//WARNING: generate workout btn no se activa incluso después de haber clickeado types, al parecer
+//porque aun no ha terminado de cargar. Puede ser una buena manera de usar asincronía
+
+//BUG: timerexe activo > quit > cuando inicias un nuevo workout, el ultimo li no desaparece
+//en la última set
