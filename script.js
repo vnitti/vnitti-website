@@ -9,14 +9,17 @@ galleryImg.forEach(image => {
     }
 });
 
-ex.onclick = () => {
+ex.addEventListener('click', () => {
     document.querySelector('.popup-img').style.display = 'none';
-}
-
+    console.log("img selected");
+});
+/*
 navLi.forEach(li => {
     li.onclick = () => {
         console.log("1");
         document.querySelector('. li a class') = 'nav-li-selected';
         console.log("2");
     }
-})
+})*/
+
+

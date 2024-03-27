@@ -12,7 +12,7 @@
 body {
     height: 100vh;
     width: 780px;
-    color: rgb(46, 45, 43);
+    color: #2e2d2b;
     margin: 0 auto;
 }
 
@@ -56,7 +56,7 @@ section {
     display: flex;
     justify-content: space-between;    
     align-items: center;
-    padding: 0 12px 0;
+    margin: 0 12px;
 }
   
 .menu-btn {
@@ -64,7 +64,7 @@ section {
     border: none; /* Remove button borders */
     background: none; /* Remove button background */
     cursor: pointer; /* Change cursor to pointer on hover */
-    padding: 0; /* Padding for button text */
+    padding: 12px;
     margin: 0;
     height: 100%;
 
@@ -72,8 +72,22 @@ section {
 }
 
 .menu-btn a {
-    color: rgb(118, 117, 113);
+    color: rgb(143, 143, 143);
+    background-color: inherit;
 }
+
+.menu-btn:hover {
+    background-color: #bcbec0;
+}
+
+.active-menu-btn {
+    background-color: #2e2d2b;
+}
+
+.menu-btn .active-menu-a {
+    color: rgb(232, 237, 241);
+}
+
 
 @media screen and (max-width: 768px) {
     body {
