@@ -6,85 +6,89 @@
     color: rgb(29, 29, 29);
     box-sizing: border-box;
     background-color: rgb(232, 237, 241);
+    text-decoration: none;
 }
 
 /*=============================================================*/
 /*HEAD*/
-header h2 {
-    margin: 10px 0;
+h2 {
+    padding: 20px 0;
 }
 
 body {
     height: 100vh;
-    max-width: 960px
+    width: 720px;
+    margin: 0 auto;
 }
 
 main {
-    margin-top: 150px;
-    margin-left: 150px;
-    left: 202px;
+    margin-top: 50px;
 }
 
 p {
-    margin: 25px 0 25px 0;
-}
-
-/*=============================================================*/
-/*GRID*/
-.container {
-    display: grid;
-    width: 1000px;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 200px 200px;
+    margin: 20px 0 20px 0;
 }
 
 /*=============================================================*/
 /*TITULO*/
-header .vnitti-img {
-    max-width: 229px;
-    margin-left: 20px;
-    padding-left: 20px;
+
+.title {
+    margin: 75px;
     justify-content: center;
+    display: flex;
+    align-items: center;
+
 }
 
-.title-cell {
+.title-img {
+    width: 300px;
+}
+
+/*=============================================================*/
+/*MENU*/
+
+.menu {
+    justify-content: space-between;
+    justify-content: space-between;
     display: flex;
     align-items: center;
 }
-
-
-
-/*=============================================================*/
-/*NAV*/
-
-nav{
+  
+.menu-btn {
     font-weight: 1000;
-}
+    border: none; /* Remove button borders */
+    background: none; /* Remove button background */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    padding: 5px 10px; /* Padding for button text */
 
-.nav-ul {
-    margin: 0 0 0 20px;
-    padding: 10px;
-}
-
-nav ul li {
     margin: 10px;
     height: 100%;
-    list-style: none;
-}
 
-nav .nav-li {
     user-select: none;
     text-decoration: none;
 }
 
 
 
-/*=============================================================*/
-/*MAIN*/
 
-.main-cell {
-    padding: 10px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*=============================================================*/
@@ -142,22 +146,6 @@ nav .nav-li {
 /*====================================*/
 /*WORKOUT GENERATOR*/
 
-#pull {
-    font-size: 15px;
-}
-
-#push {
-    font-size: 15px;
-}
-
-#leg {
-    font-size: 15px;
-}
-
-
-
-
-/*============*/
 /*ACTIVE ITEM*/
 #active {
     background-color: rgb(175, 180, 185);
