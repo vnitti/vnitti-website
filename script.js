@@ -27,11 +27,11 @@ if (currentPath === pixelsPath) {
 // ===== GENERAL =====
 document.addEventListener("DOMContentLoaded", ()=> {
     const menuAnchors = document.querySelectorAll(".menu-a");
-
+/*
     if (currentPage.endsWith("/")) {
         currentPage += "index.html"; // Append "index.html" to the URL
     };
-  
+ */ 
     menuAnchors.forEach(a => {
         const btn = a.querySelector("button");
         const aHref = a.href;
