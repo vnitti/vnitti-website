@@ -4,49 +4,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vnitti</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="F:\Vicente\Web Dev\projects\vnitti-site\fonts\web\hack-subset.css">
+    <link rel="stylesheet" href="./fonts/web/hack-subset.css">
 </head>
 <body>
-    <div class="container">
-        <header class="title-cell">
-                <img class="vnitti-img" src="./images/signature.png" alt="vnitti">
-        </header>
+    <header>
+        <div class="title">
+            <img class="title-img" src="./images/signature.svg" alt="vnitti">
+        </div>
 
-        <div class="empty-cell"></div>
-
-         <nav class="nav-cell">
-            <ul class="nav-ul">
-                <li><a class="nav-li" href="./index.html">Resumen</a></li>
-                <li><a class="nav-li" href="./pixelart.html">Pixel art</a></li>
-                <li><a class="nav-li" href="./projects.html">Projects</a></li>
-                <li><a class="nav-li" href="./store.html">Store</a></li>
-                <li><a class="nav-li" href="./contact.html">Contact</a></li>
-            </ul>
+        <nav class="menu">
+            <a class="menu-a" href="index.html"><button class="menu-btn" >Resumen</button></a>
+            <a class="menu-a" href="pixelart.html"><button class="menu-btn" >Pixels</button></a>
+            <a class="menu-a" href="projects.html"><button class="menu-btn" >Projects</button></a>
+            <a class="menu-a" href="contact.html"><button class="menu-btn" >Contact</button></a>
         </nav>
+    </header>
 
-        <main class="main-cell">
-            <section class="pixelart">
-                <header>
-                    <h2>Pixel art</h2>
-                </header>
-                <div class="gallery">
-                    <img class="thumbnail-img" src="./images/chars1.png" alt="">
-                    <img class="thumbnail-img" src="./images/foe2.gif" alt="">
-                    <img class="thumbnail-img" src="./images/player1.gif" alt="">
-                    <img class="thumbnail-img" src="./images/banner1.png" alt="">
+    <main>
+        <section class="pixelart">
+            <h2>Pixel art</h2>
+            <div class="gallery">
+                <img class="thumbnail-img" src="./images/chars1.png" alt="">
+                <img class="thumbnail-img" src="./images/foe2.gif" alt="">
+                <img class="thumbnail-img" src="./images/player1.gif" alt="">
+                <img class="thumbnail-img" src="./images/banner1.png" alt="">
             
-                </div>
+            </div>
             
-                <div class="popup-img">
-                    <span class="ex">&times;</span>
-                    <img src="" alt="">
-                </div>
-            </section>
-        </main>
-            
-    </div>
-        
-    <script type="text/javascript" src="script.js"></script>
+            <div class="popup-img">
+                <span class="ex">&times;</span>
+                <img src="" alt="">
+            </div>
+         </section>
+    </main>    
+    <script type="module" src="script.js"></script>
 </body>
 </html>
 
