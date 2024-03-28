@@ -1,11 +1,11 @@
 const currentPage = window.location.href;
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
+const currentDomain = currentPage.split("/")[2]; //returns "https://www.vnitti.com"
+const domainString = "https://www.vnitti.com/";
 
 // ===== ONLY FOR PIXELS PAGE =====
 if (currentPath === pixelsPath) {
-
-    console.log("aaa");
     let galleryImg = document.querySelectorAll('.gallery img');
     let ex = document.querySelector('.ex');
 
@@ -25,22 +25,20 @@ if (currentPath === pixelsPath) {
 
 // ===== GENERAL =====
 document.addEventListener("DOMContentLoaded", ()=> {
-    const domain = currentPage.split("/")[2]; //returns "https://www.vnitti.com"
-    
     const menuAnchors = document.querySelectorAll(".menu-a");
   
     menuAnchors.forEach(a => {
-        let btn = a.querySelector("button");
-        let aHref = a.href;
+        const btn = a.querySelector("button");
+        const aHref = a.href;
 
-        console.log(currentPage);
+        console.log(domainString);
+        console.log(currentDomain);
+        console.log(aHref);
 
-        if (aHref === currentPage || aHref === domain) {
+        if (currentPage === aHref || currentPage === domainString) {
             btn.classList.add("active-menu-btn");
             console.log("IT'S THE SAME SHIT");
         };
     });
 });
-
-
 
