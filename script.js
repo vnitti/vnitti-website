@@ -1,7 +1,7 @@
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
 const span = document.querySelector(".check-span");
-span.innerHTML = "v4";
+span.innerHTML = "v5";
 
 let currentPage = window.location.href;
 //const currentDomain = currentPage.split("/")[2]; //returns "https://www.vnitti.com"
@@ -34,25 +34,21 @@ document.addEventListener("DOMContentLoaded", ()=> {
         currentPage += "index.html";
         console.log("index.html added");
     };
-
+/*
     if (currentPage.endsWith(".com")) {
         currentPage += "/index.html";
         console.log("/index.html added");
-    };
+    };*/
   
     menuAnchors.forEach(a => {
         const btn = a.querySelector("button");
         const aHref = a.href;
 
-        if (currentPage === aHref ||
-            currentPage === "https://www.vnitti.com/" ||
-            currentPage === "http://www.vnitti.com/" ||
-            currentPage === "https://www.vnitti.com" ||
-            currentPage === "http://www.vnitti.com" ||
-            currentPage === "http://www.vnitti.com/index.html"
-            ) {
+        console.log(aHref);
+
+        if (currentPage === aHref) {
             btn.classList.add("active-menu-btn");
-            console.log("the solution was here.");
+            console.log("active.");
         };
     });
 });
