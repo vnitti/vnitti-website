@@ -1,7 +1,7 @@
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
 const span = document.getElementById("check-span");
-span.innerHTML = "aaa";
+span.innerHTML = "v3";
 
 const currentPage = window.location.href;
 //const currentDomain = currentPage.split("/")[2]; //returns "https://www.vnitti.com"
