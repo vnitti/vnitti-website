@@ -25,7 +25,6 @@ import {
     types
 } from "./workoutGenerator.js";
 
-
 let startBtn = document.getElementById("start-btn");
 let pauseBtn = document.getElementById("pause-btn");
 let resumeBtn = document.getElementById("resume-btn");

@@ -20,99 +20,30 @@
         </nav>
     </header>
 
-        <main>
-            <section class="projects">
-                <h2>Projects</h2>
+    <main>
+        <section class="resumen">
+            <span class="check-span">v?</span>
 
-                <div>
-                    <h3>Work Out Generator</h3>
-                </div>
-
-                <div>
-                    <fieldset id="fieldset-types">                
-                        <legend><h2>Select your workout type: </h2></legend>
-
-                        <input id="pull-input" type="radio" value="pull-input" name="types" class="wo-type">
-                        <label for="pull-input">Pull Day</label>
-                        <br>                        
-                        <input id="push-input" type="radio" value="push-input" name="types" class="wo-type">
-                        <label for="push-input">Push Day</label>                          
-                        <br>           
-                        <input id="leg-input" type="radio"  value="leg-input" name="types" class="wo-type">
-                        <label for="leg-input">Leg Day</label>                                       
-                    </fieldset>
-                </div>
-                <br>
-                <div>
-                    <h2>Number of exercises per set: </h2>
-                    <label for="number-exercises"></label></legend>
-                    <input type="number" id="number-exercises" class="number-input" min="1" max="8" value="4">                                                    
-                </div>
-                <br>
-                <br>
-                <div>
-                    <h2>Number of sets: </h2>
-                    <label for="number-rounds"></label></legend>
-                    <input type="number" id="number-rounds" class="number-input" min="1" max="16" value="4">                                                    
-                </div>
-                <br>
-                <br>
-                <div>
-                    <h2>Rest between exercises: </h2>
-                    <input type="number" class="number-input" id="input-exe-min" min="0" max="10" value="00">
-                    <label for="input-exe-min"></label>
-                    <span>:</span>
-                    <input type="number" class="number-input" id="input-exe-sec" min="0" max="59" value="03">
-                    <label for="input-exe-sec"></label>
-                </div>
-                <br>
-                <br>
-                <div>
-                    <h2>Rest between series: </h2>
-                    <label for="input-ser-min"></label>
-                    <input type="number" class="number-input" id="input-ser-min" min="0" max="10" value="02">
-                    <span>:</span>
-                    <label for="input-ser-sec"></label>
-                    <input type="number" class="number-input" id="input-ser-sec" min="0" max="59" value="30">
-                </div>
-                <br>
-                <br>
-                <div>
-                    <button id="generate">Generate Workout</button>
-                    <p id="wo-today">Your work out is: </p>
-                    <ul id="ul-wo"></ul>
-                </div>
-                <br>
-                <br>
-                <div>
-                    <button id="start-btn">=== S T A R T ===</button>
-                    <button id="next-btn">Next</button>
-                </div>
-
-                <div id="clockContainer">
-                    <div>
-                        <button id="resume-btn" class="timer-btn">Resume</button>
-                        <button id="pause-btn" class="timer-btn">Pause</button>
-                        <button id="reset-btn" class="timer-btn">Quit</button>
-                    </div>
+            <h2>v5</h2>
+            <div>
+                <a href="workout.html" target="_blank"><h2>PPL Workout Generator</h2></a>
+                <p class="description">
+                    An online app that generates random workout routines following the Pull-Push-Leg principle.
                     <br>
-                    <div>
-                        <span>Elapsed time: </span>
-                        <span id="chrono-display">00:00:00:00</span>
-                        
-
-                        <span id="timer-ser-display"></span>
-
-
-                        <span id="timer-exe-display"></span>
-
-                        <span id="active"></span>
-                    </div>
-                    
-                </div>
-                
-            </section>
-        </main>  
-    <script type="module" src="index.js"></script>
+                    <br>
+                    The app offers the user the possibility of structuring their routine without too much planning
+                    and also of turning them in a daily challenge. Just set the type of routine you want, number of
+                    exercises and sets and the rests between them.
+                    <br>
+                    <br>
+                    This apps also serves for tracking the routine as you work out, making use of the chronometer and the pannel.
+                    <br>
+                    <br>
+                    It was made with vanilla JavaScript, HTML and CSS.
+                </p>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

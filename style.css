@@ -1,19 +1,31 @@
 /*=============================================================*/
 /*GENERALES*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 *{
+
+}
+
+@media screen and (max-width: 768px) {
+    body {
+      max-width: 100%; /* Full width on smaller screens */
+      padding: 10px; /* Reduce padding on smaller screens */
+    }
+}
+
+body {
     font-family: 'Hack', monospace;
     font-size: 17px;
     box-sizing: border-box;
-    background-color: rgb(232, 237, 241);
     text-decoration: none;
-}
 
-/*=============================================================*/
-body {
     height: 100vh;
     width: 780px;
     color: #2e2d2b;
     margin: 0 auto;
+    background-color: rgb(232, 237, 241);
 }
 
 main {
@@ -25,18 +37,25 @@ main {
 
 h2 {
     margin: 30px 0 30px 0;
+    font-size: 17px;
 }
 
 p {
     margin: 30px 0 30px 0;
 }
 
+section a {
+    color: #0084ff;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
 section {
     margin: 0 12px 0;
 }
-
-/*=============================================================*/
-/*TITULO*/
 
 .title {
     margin: 70px;
@@ -49,9 +68,6 @@ section {
     width: 230px;
 }
 
-/*=============================================================*/
-/*MENU*/
-
 .menu {
     display: flex;
     justify-content: space-between;    
@@ -60,7 +76,9 @@ section {
 }
   
 .menu-btn {
+    font-family: 'Hack', monospace;
     font-weight: 1000;
+    font-size: 17px;
     border: none; /* Remove button borders */
     background: none; /* Remove button background */
     cursor: pointer; /* Change cursor to pointer on hover */
@@ -85,27 +103,163 @@ section {
 }
 
 
-@media screen and (max-width: 768px) {
-    body {
-      max-width: 100%; /* Full width on smaller screens */
-      padding: 10px; /* Reduce padding on smaller screens */
-    }
+
+
+
+
+
+
+
+
+
+
+/*====================================*/
+/* === PPL WORKOUT GENERATOR GENERAL === */
+body.wo-page {
+    font-family: 'Monserrat',  sans-serif;
+    font-size: 22px;
+    box-sizing: border-box;
+    text-decoration: none;
+
+    height: 100vh;
+    width: 780px;
+    color: #fff;
+    margin: 0 auto;
+    background-color: #202327;
 }
 
+#inputs {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr; /* Two columns of equal width */
+    grid-gap: 10px; /* Optional gap between grid items */
+}
 
+  #fieldset-types { /**/
+    margin-bottom: 15px;
+    border: none;
+  }
+  
+  #fieldset-types label { /**/
+    margin-bottom: 5px;
+  }
+  
+  .number-input { /**/
+    width: 100px;
+    padding: 5px;
 
+    font-size: 22px;
+  }
+  
+  #ul-wo { /**/
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  #chrono-display { /**/
+    font-size: 22px;
+    margin-top: 20px;
+  }
+  
+  .button-group { /**/
+    margin-top: 20px;
+  }
+  
+.wo-page button { /**/
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    width: 110px;
+    cursor: pointer;
+    font-family: 'Monserrat',  sans-serif;
+    font-size: 22px;
+    border-radius: 5px;
+    border: none;
+}
 
+.input-div {
+    margin: 30px 0;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
 
+.colon {
+    margin: 0 6px;
+}
 
+#generate {
+    width: 230px;
+}
+  
+/* === WORKOUT DISPLAY === */
+#active {
+    background-color: rgb(175, 180, 185);
+}
 
+input[type="number"] {
+    width: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: textfield; /* Override browser styles */
+    padding: 5px;
+    border: 0px solid rgb(143, 143, 143);; /* Add border */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    background-color: rgb(232, 237, 241);
+}
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    -webkit-appearance: none;
+}
 
-
-
-
-
-
-
+/* ONLY FOR RADIO BUTTONS */
+/* Style radio buttons */
+input[type="radio"] {
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none; /* For older versions of Chrome/Safari */
+    -moz-appearance: none; /* For older versions of Firefox */
+    width: 20px; /* Set width */
+    height: 20px; /* Set height */
+    border-radius: 50%; /* Make them round */
+    border: none; /* Add border */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Show pointer cursor */
+    position: relative; /* Position for pseudo-element */
+    background-color: white;
+  }
+  
+  /* Style checked radio buttons */
+  input[type="radio"]:checked {
+    background-color: white; /* Change background color when checked */
+  }
+  
+  /* Create dot for checked radio buttons */
+  input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px; /* Adjust size of the dot */
+    height: 12px; /* Adjust size of the dot */
+    border-radius: 50%;
+    background-color: #202327;; /* Color of the dot */
+  }
+  
+  /* Style radio button labels */
+  input[type="radio"] + label {
+    margin-right: 10px; /* Add spacing between radio button and label */
+    font-size: 22px; /* Set font size */
+  }
+  
+  /* Hide default radio button marker */
+  input[type="radio"]::before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 5px;
+  }
 
 
 
@@ -117,7 +271,7 @@ section {
 
 
 /*=============================================================*/
-/*IMAGENES Y THUMBNAILS*/
+/*PIXEL ART PORTFOLIO*/
 
 .thumbnail-img {
     filter: grayscale(100%);
@@ -165,30 +319,4 @@ section {
     .popup-img img {
         width: 95%;
     }
-}
-
-
-/*====================================*/
-/*WORKOUT GENERATOR*/
-
-/*ACTIVE ITEM*/
-#active {
-    background-color: rgb(175, 180, 185);
-}
-
-input[type="number"] {
-    /* Add custom styles */
-    width: 50px;
-
-    /* Remove default number input arrows */
-    -webkit-appearance: none;
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: textfield; /* Override browser styles */
-}
-
-/* Style the number input arrows separately */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    opacity: 1;
-    -webkit-appearance: none;
 }
