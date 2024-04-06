@@ -4,9 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-*{
-
-}
 
 @media screen and (max-width: 768px) {
     body {
@@ -42,11 +39,11 @@ h2 {
 
 p {
     margin: 30px 0 30px 0;
+    line-height: 1.4;
 }
 
 section a {
-    color: #0084ff;
-    text-decoration: none;
+    color: #0e22ff;
 }
 
 li {
@@ -68,6 +65,13 @@ section {
     width: 230px;
 }
 
+.project-entry h2,
+.project-entry p {
+    display: inline;
+}
+
+
+/* ===== MENU =====*/
 .menu {
     display: flex;
     justify-content: space-between;    
@@ -117,7 +121,7 @@ section {
 /* === PPL WORKOUT GENERATOR GENERAL === */
 body.wo-page {
     font-family: 'Monserrat',  sans-serif;
-    font-size: 22px;
+    font-size: 17px;
     box-sizing: border-box;
     text-decoration: none;
 
@@ -137,6 +141,7 @@ body.wo-page {
   #fieldset-types { /**/
     margin-bottom: 15px;
     border: none;
+    line-height: 0.3;
   }
   
   #fieldset-types label { /**/
@@ -147,22 +152,13 @@ body.wo-page {
     width: 100px;
     padding: 5px;
 
-    font-size: 22px;
+    font-size: 20px;
   }
   
   #ul-wo { /**/
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  #chrono-display { /**/
-    font-size: 22px;
-    margin-top: 20px;
-  }
-  
-  .button-group { /**/
-    margin-top: 20px;
+    background-color: #557790;
   }
   
 .wo-page button { /**/
@@ -171,13 +167,12 @@ body.wo-page {
     width: 110px;
     cursor: pointer;
     font-family: 'Monserrat',  sans-serif;
-    font-size: 22px;
-    border-radius: 5px;
+    font-size: 17px;
     border: none;
 }
 
 .input-div {
-    margin: 30px 0;
+    margin: 10px 0;
     height: 36px;
     display: flex;
     align-items: center;
@@ -190,21 +185,93 @@ body.wo-page {
 #generate {
     width: 230px;
 }
-  
+
+.title-wo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-wo h1 {
+    margin: 15px 0;
+}
+
+h4 {
+    margin: 10px 0;
+    height: 15px;
+    font-weight: normal;
+}
+
+.section {
+    background-color: #374754;
+    margin: 16px 0;
+    padding: 14px;
+}
+
+.section #generate-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 20px 0 5px 0;
+}
+
+.section button {
+    background-color: #6d9ec1;
+}
+
+.section button:active {
+    background-color: #c7d5e1;
+    color: #6d9ec1;
+}
+
+.section button:disabled {
+    background-color: #545d67;
+}
+
+#wo-today {
+    margin: 10px 0;
+}
+
+.chrono-div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #557790;
+}
+
+.chrono-div span {
+    margin: 0 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
 /* === WORKOUT DISPLAY === */
 #active {
-    background-color: rgb(175, 180, 185);
+    background-color: #6d9ec1;
 }
 
 input[type="number"] {
     width: 50px;
+    height: 25px;
     -webkit-appearance: none;
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: textfield; /* Override browser styles */
+    -moz-appearance: textfield; /* for firefox */
+    appearance: textfield; /* override browser styles */
     padding: 5px;
-    border: 0px solid rgb(143, 143, 143);; /* Add border */
-    border-radius: 5px; /* Add border-radius for rounded corners */
-    background-color: rgb(232, 237, 241);
+    border: 0; /* Add border */
+    background-color: #c7d5e1;
+    
+    font-family: 'Monserrat',  sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -219,19 +286,19 @@ input[type="radio"] {
     appearance: none; /* Remove default appearance */
     -webkit-appearance: none; /* For older versions of Chrome/Safari */
     -moz-appearance: none; /* For older versions of Firefox */
-    width: 20px; /* Set width */
-    height: 20px; /* Set height */
+    width: 17px; /* Set width */
+    height: 17px; /* Set height */
     border-radius: 50%; /* Make them round */
     border: none; /* Add border */
     outline: none; /* Remove outline */
     cursor: pointer; /* Show pointer cursor */
     position: relative; /* Position for pseudo-element */
-    background-color: white;
+    background-color: #c7d5e1;
   }
   
   /* Style checked radio buttons */
   input[type="radio"]:checked {
-    background-color: white; /* Change background color when checked */
+    background-color: #c7d5e1; /* Change background color when checked */
   }
   
   /* Create dot for checked radio buttons */
@@ -241,8 +308,8 @@ input[type="radio"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 12px; /* Adjust size of the dot */
-    height: 12px; /* Adjust size of the dot */
+    width: 10px; /* Adjust size of the dot */
+    height: 10px; /* Adjust size of the dot */
     border-radius: 50%;
     background-color: #202327;; /* Color of the dot */
   }
@@ -250,7 +317,8 @@ input[type="radio"] {
   /* Style radio button labels */
   input[type="radio"] + label {
     margin-right: 10px; /* Add spacing between radio button and label */
-    font-size: 22px; /* Set font size */
+    font-size: 17px; /* Set font size */
+
   }
   
   /* Hide default radio button marker */

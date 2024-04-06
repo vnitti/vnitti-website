@@ -13,22 +13,28 @@
         <main class="container-wo">
             <section class="projects">
 
-                <div>
+                <div class="title-wo">
                     <h1>PPL Workout Generator</h1>
                 </div>
 
                 <div class="section">
                     <div id="fieldset-types">                
-                        <h4>Select your workout type: </h4>                                   
+                        <h4>What day is it today?</h4>  
 
-                        <input id="pull-input" type="radio" value="pull-input" name="types" class="wo-type">
-                        <label for="pull-input">Pull Day</label>
-                        <br>                        
-                        <input id="push-input" type="radio" value="push-input" name="types" class="wo-type">
-                        <label for="push-input">Push Day</label>                          
+                        <div class="wo-type-option">
+                            <input id="pull-input" type="radio" value="pull-input" name="types" class="wo-type">
+                            <label for="pull-input">Pull Day</label>
+                        </div>
+                        <br>     
+                        <div class="wo-type-option">
+                            <input id="push-input" type="radio" value="push-input" name="types" class="wo-type">
+                            <label for="push-input">Push Day</label>
+                        </div>
                         <br>           
-                        <input id="leg-input" type="radio"  value="leg-input" name="types" class="wo-type">
-                        <label for="leg-input">Leg Day</label>                                       
+                        <div class="wo-type-option">
+                            <input id="leg-input" type="radio"  value="leg-input" name="types" class="wo-type">
+                            <label for="leg-input">Leg Day</label>     
+                        </div>
                     </div>
 
                     
@@ -37,7 +43,7 @@
                             
         
                             <div class="input-div">
-                                <h4>Number of exercises per set: </h4>                                                   
+                                <h4>Number of exercises:</h4>                                                   
                             </div>
             
                             <div class="input-div">
@@ -69,7 +75,7 @@
                                 <input type="number" class="number-input" id="input-exe-min" min="0" max="10" value="00">
                                 <label for="input-exe-min"></label>
                                 <span class="colon">:</span>
-                                <input type="number" class="number-input" id="input-exe-sec" min="0" max="59" value="03">
+                                <input type="number" class="number-input" id="input-exe-sec" min="0" max="59" value="15">
                                 <label for="input-exe-sec"></label>
                             </div>
             
@@ -82,35 +88,38 @@
                             </div>
                         </div>
                     </div>
+                    <div id="generate-div">
+                        <button id="generate">Generate Workout</button>
+                    </div>
                 </div>
 
                 <div class="section">
-                    <button id="generate">Generate Workout</button>
+                    
+                    
                     <p id="wo-today">Your work out is: </p>
                     <ul id="ul-wo"></ul>
-                </div>
-
-                <div class="button-group">
-                    <div>
-                        <button id="start-btn" class="display-btn">Start</button>
-                        <button id="next-btn" class="display-btn">Next</button>
-                        <button id="resume-btn" class="display-btn">Resume</button>
-                        <button id="pause-btn" class="display-btn">Pause</button>
-                        <button id="reset-btn" class="display-btn">Quit</button>
-                    </div>
-                    <div>
-                        <span>Elapsed time: </span>
-                        <span id="chrono-display">00:00:00:00</span>
+                    <div class="button-group">
+                        <div>
+                            <button id="start-btn" class="display-btn">Start</button>
+                            <button id="next-btn" class="display-btn">Next</button>
+                            <button id="resume-btn" class="display-btn">Resume</button>
+                            <button id="pause-btn" class="display-btn">Pause</button>
+                            <button id="reset-btn" class="display-btn">Quit</button>
+                        </div>
+                        <div class="chrono-div">
+                            <span>Elapsed time: </span>
+                            <span id="chrono-display">00:00:00:00</span>
+                        </div>
+                        <div>
+                            <span id="timer-ser-display"></span>
+    
+    
+                            <span id="timer-exe-display"></span>
+    
+                            <span id="active"></span>
+                        </div>
                         
-
-                        <span id="timer-ser-display"></span>
-
-
-                        <span id="timer-exe-display"></span>
-
-                        <span id="active"></span>
                     </div>
-                    
                 </div>
                 
             </section>
