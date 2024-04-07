@@ -214,25 +214,83 @@ function enableInputs() {
 }
 
 
+let popupBubble = document.getElementById('popup-msg');
+
+function showPopup(msg) {
+    popupBubble.textContent = msg;
+    popupBubble.style.display = 'block';
+    popupBubble.style.opacity = '1';
+
+    setTimeout(() => {
+        popupBubble.style.opacity = '0'; // Fade out by setting opacity to 0
+        // Hide the popup bubble after the fade out animation completes
+        setTimeout(() => {
+            popupBubble.style.display = 'none';
+        }, 1000); // Delay to match the transition duration
+    }, 2500); // 3000 milliseconds = 3 seconds
+};
+
 //hace que se respeten los min y max de los input number tags
 numberInputs.forEach(input => {
-    console.log("forEach ran");
-    input.addEventListener('input', () => {
-        const min = parseFloat(input.getAttribute('min'));
-        const max = parseFloat(input.getAttribute('max'));
+    input.addEventListener('blur', () => {
+        const min = parseInt(input.getAttribute('min'));
+        const max = parseInt(input.getAttribute('max'));
+        let value = parseInt(input.value);
+        let id = input.id;
+        let foo = null;
+        let message = ""
+        
+        const pleaseMsg =  `Please set a number between ${min} and ${max}.`;
+        const invalidMsg = `Please set a valid number.`;
 
-        let value = parseFloat(input.value);
+        const exeMaxMsg = `The max number of exercises is ${max}. `;
+        const exeMinMsg = `The min number of exercises is ${min}. `;
+        const exeArray = [exeMinMsg, exeMaxMsg];
 
-        if (isNaN(value) || value < min) {
+        const setMaxMsg = `The max number of sets is ${max}. `;
+        const setMinMsg = `The min number of sets is ${min}. `;
+        const setArray = [setMinMsg, setMaxMsg];
+
+        const secMaxMsg = `The max number of seconds is ${max}. `;
+        const secMinMsg = `The min number of seconds ${min}. `;
+        const secArray = [secMinMsg, secMaxMsg];
+
+        const minMaxMsg = `The max number of minutes is ${max}. `;
+        const minMinMsg = `The min number of minutes is ${min}. `;
+        const minArray = [minMinMsg, minMaxMsg];
+
+        switch (id) {
+            case "number-exercises":
+                foo = exeArray;
+                break;
+            case "number-rounds":
+                foo = setArray;
+                break;
+            case "input-exe-min":
+                foo = minArray;
+                break;
+            case "input-exe-sec":
+                foo = secArray;
+        };
+
+
+        if (value < min) {
             value = min;
+            message = foo[0];
+            showPopup(message + pleaseMsg);
         } else if (value > max) {
             value = max;
-        }
+            message = foo[1];
+            showPopup(message + pleaseMsg);
+        } else if (isNaN(value)) {
+            value = min;
+            showPopup(invalidMsg);
+        };
 
         input.value = value;
-        console.log("event listener ran");
     });
 });
+
 
 
 export {

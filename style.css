@@ -49,10 +49,10 @@ section a {
 li {
     list-style: none;
 }
-
+/*
 section {
     margin: 0 12px 0;
-}
+}*/
 
 .title {
     margin: 70px;
@@ -204,7 +204,7 @@ h4 {
 
 .section {
     background-color: #374754;
-    margin: 16px 0;
+    margin: 14px 4px;
     padding: 14px;
 }
 
@@ -330,6 +330,24 @@ input[type="radio"] {
   }
 
 
+/* === WORKOUT DISPLAY === */
+
+#popup-msg {
+    display: none;
+    position: absolute;
+    width: 300px;
+    top: calc(100% - 500px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8e9195;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Fade in/out transition */
+}
 
 
 
