@@ -213,7 +213,7 @@ function enableInputs() {
     });
 }
 
-
+//
 let popupBubble = document.getElementById('popup-msg');
 
 function showPopup(msg) {
@@ -266,10 +266,10 @@ numberInputs.forEach(input => {
             case "number-rounds":
                 foo = setArray;
                 break;
-            case "input-exe-min":
+            case "input-exe-min" || "input-ser-min":
                 foo = minArray;
                 break;
-            case "input-exe-sec":
+            case "input-exe-sec" || "input-exe-min":
                 foo = secArray;
         };
 
