@@ -266,10 +266,16 @@ numberInputs.forEach(input => {
             case "number-rounds":
                 foo = setArray;
                 break;
-            case "input-exe-min" || "input-ser-min":
+            case "input-exe-min":
                 foo = minArray;
                 break;
-            case "input-exe-sec" || "input-exe-min":
+            case "input-ser-min":
+                foo = minArray;
+                break;
+            case "input-exe-sec":
+                foo = secArray;
+                break;
+            case "input-ser-sec":
                 foo = secArray;
         };
 
@@ -286,6 +292,7 @@ numberInputs.forEach(input => {
             value = min;
             showPopup(invalidMsg);
         };
+        console.log(message);
 
         input.value = value;
     });
