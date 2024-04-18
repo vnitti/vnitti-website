@@ -15,7 +15,7 @@ function start() {
         startTime = currentTime;
         interval = setInterval(updateTime, 10);
     }
-}
+};
 
 function updateTime() {
     currentTime = ++startTime;
@@ -26,7 +26,7 @@ function updateTime() {
     let hrs = pad(Math.floor((((currentTime / 100) / 60 ) / 60) % 60));
 
     display.innerText = `${hrs} : ${mins} : ${secs} : ${mili}`;
-}
+};
 
 function stop() {
     console.log("chrono stopped");
@@ -35,17 +35,17 @@ function stop() {
     startTime = 0;
     currentTime = 0;
     display.innerText = "00:00:00";
-}
+};
 
 function pause() {
     console.log("chrono paused");
     clearInterval(interval);
     isPaused = true;
-}
+};
 
 function pad(num) {
     return num > 9 ? num : "0"+num;
-}
+};
 
 export {
     start,

@@ -1,12 +1,7 @@
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
-/*
-const span = document.querySelector(".check-span");
-span.innerHTML = "v5";
-*/
 let currentPage = window.location.href;
-//const currentDomain = currentPage.split("/")[2]; //returns "https://www.vnitti.com"
-//const domainString = "https://www.vnitti.com/";
+
 
 // ===== ONLY FOR PIXELS PAGE =====
 if (currentPath === pixelsPath) {
@@ -35,11 +30,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         currentPage += "index.html";
         console.log("index.html added");
     };
-/*
-    if (currentPage.endsWith(".com")) {
-        currentPage += "/index.html";
-        console.log("/index.html added");
-    };*/
   
     menuAnchors.forEach(a => {
         const btn = a.querySelector("button");
