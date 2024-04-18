@@ -1,11 +1,11 @@
-# PPL workout generator to-do list
+# PPL workout generator
 
 ## TO-DO list
 
 ### HTML and CSS
 - [] Translate HTML text to Spanish
 - [x] Isolate the stylesheet of the workout app to its own .css file
-- [] Favicon
+- [x] Favicon
 
 ### JavaScript
 - [] Make all the verification bools false once "quit" btn is clicked
