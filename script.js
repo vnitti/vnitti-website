@@ -26,20 +26,20 @@ if (currentPath === pixelsPath) {
 document.addEventListener("DOMContentLoaded", ()=> {
     const menuAnchors = document.querySelectorAll(".menu-a");
 
-    if (currentPage.endsWith("/") || currentPath === "" ) {
-        currentPage += "index.html";
-        console.log("index.html added");
+    if (currentPath === "" ) {
+        currentPage += "/";
+        //console.log(currentPage);
+        //console.log("/ added");
     };
   
     menuAnchors.forEach(a => {
         const btn = a.querySelector("button");
         const aHref = a.href;
-
-        console.log(aHref);
+        //console.log(aHref);
 
         if (currentPage === aHref) {
             btn.classList.add("active-menu-btn");
-            console.log("active.");
+            //console.log("active.");
         };
     });
 });

@@ -32,8 +32,6 @@ li {
     list-style: none;
 }
 
-
-
 #inputs {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr; /* Two columns of equal width */
