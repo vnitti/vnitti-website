@@ -286,11 +286,9 @@ function checkSelect(select) {
 };
 
 
-
-
-
-//impide que se introduzcan mas de dos caracteres en los input de tipo number
 numberInputs.forEach(input => {
+
+    //impide que se introduzcan mas de dos caracteres en los input de tipo number
     input.addEventListener('input', () => {
         let inputValue = input.value;
         if (inputValue.length > 2) {
@@ -299,16 +297,7 @@ numberInputs.forEach(input => {
             input.value = inputValue;
         };    
     });
-});
-/*
-let exeMin = document.getElementById("input-exe-min").value;
-let exeSec = document.getElementById("input-exe-sec").value;
-let setMin = document.getElementById("input-ser-min").value;
-let setSec = document.getElementById("input-ser-sec").value;
-let previous = 11;
-*/
-//hace que se respeten los min y max de los input number tags
-numberInputs.forEach(input => {
+
     input.addEventListener('blur', () => {
         const min = parseInt(input.getAttribute('min'));
         const max = parseInt(input.getAttribute('max'));
@@ -317,7 +306,7 @@ numberInputs.forEach(input => {
         let messageArray = null;
         let message = "";
 
-        //si el input es número, selectExeBool o selectSetB se hace true, uno de
+        //si el input es número, selectExeBool o selectSetBool se hace true, uno de
         //los 4 booleanos requisitos para que el generate button se desbloquee
         if(!isNaN(input.value) && input.value > input.getAttribute('min') && input.value < input.getAttribute('max')) {
             console.log("an input number has been 'blured'");
@@ -328,6 +317,7 @@ numberInputs.forEach(input => {
             console.log("requirements weren't met. Please insert a valid input number");
         };
         
+        //muestra un popup message cuando se insertan valores menores/mayores a los límites
         const pleaseMsg =  `Please set a number between ${min} and ${max}.`;
         const invalidMsg = `Please set a valid number.`;
 
@@ -353,7 +343,6 @@ numberInputs.forEach(input => {
                 messageArray = secArray;
         };
 
-        //muestra un popup message cuando se insertan valores menores/mayores a los límites
         if (value < min) {
             value = min;
             message = messageArray[0];
@@ -366,8 +355,6 @@ numberInputs.forEach(input => {
             value = min;
             showPopup(invalidMsg);
         };
-        console.log(message);
-
         
         input.value = pad(value);
     });

@@ -28,8 +28,8 @@ body {
 main {
     margin-top: 26px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
 h2 {
@@ -49,10 +49,6 @@ section a {
 li {
     list-style: none;
 }
-/*
-section {
-    margin: 0 12px 0;
-}*/
 
 .title {
     margin: 70px;
@@ -254,6 +250,12 @@ select {
     font-family: 'Monserrat',  sans-serif;
     font-size: 18px;
     box-sizing: border-box;
+}
+
+.andand {
+    font-style: italic;
+    color: #bcbec0;
+    font-weight: 100;
 }
 
 
