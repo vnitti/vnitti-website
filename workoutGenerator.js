@@ -40,17 +40,27 @@ let restSerie = null;
 let restExercise = null;
 let isTimerExe = false;
 let isTimerSer = false;
+let generateBtnEnabled = false;
 
 const types = document.getElementById("fieldset-types");
 let exercisesUl = document.getElementById("ul-wo");
 const nextBtn = document.getElementById("next-btn");
-let numberExercisesInput = document.getElementById("number-exercises");
+const numberExercisesInput = document.getElementById("number-exercises");
+const numberRoundsInput = document.getElementById("number-rounds");
+let selects = document.querySelectorAll("select");
 let roundsInput = document.getElementById("number-rounds");
 const numberInputs = document.querySelectorAll('input[type="number"]');
+let numberBool = true;
+const radioBtns = document.querySelectorAll('input[name="types"]');
+let radioBool = false;
 let rounds = parseFloat(roundsInput.value);
+let optionBool = false;
+let selectExeBool = false;
+let selectSetBool = false;
 
 const finishEvent = new CustomEvent('finish');
-const disableNextEvent = new CustomEvent('disablenext');;
+const disableNextEvent = new CustomEvent('disablenext');
+const unlockGenBtnEvent = new CustomEvent('boolchanged');
 
 
 //llena el finalArray
@@ -90,7 +100,6 @@ function generateLi(item) {
 
 document.addEventListener('timeOutExe', () => next());
 document.addEventListener('timeOutSer', () => next());
-
 
 //determina cuál elemento de la lista es el active item
 function next() {
@@ -213,7 +222,7 @@ function enableInputs() {
     });
 }
 
-//
+
 let popupBubble = document.getElementById('popup-msg');
 
 function showPopup(msg) {
@@ -230,6 +239,74 @@ function showPopup(msg) {
     }, 2500); // 3000 milliseconds = 3 seconds
 };
 
+
+//si un radio btn es marcado, radioBool se hace true, uno de
+//los 4 booleanos requisitos para que el generate button se desbloquee
+radioBtns.forEach(radio => {
+    radio.addEventListener('change', ()=> {
+        if(radio.checked) {
+            console.log("radio btn has been changed");
+            radioBool = true;
+            document.dispatchEvent(unlockGenBtnEvent);
+        } else {
+            radioBool = false;
+        }
+    });
+});
+
+
+//si el input es número, selectBool se hace true, uno de
+//los 4 booleanos requisitos para que el generate button se desbloquee
+checkSelect(numberExercisesInput);
+checkSelect(numberRoundsInput);
+
+function checkSelect(select) {
+    select.addEventListener('change', () => {
+        const selectedOption = select.value;
+        const currentSelect = null;
+        //select === numberExercisesInput ? currentSelect = numberExercisesInput : currentSelect = numberRoundsInput;
+    
+        if (!isNaN(selectedOption) && selectedOption !== "") {
+            if(select == numberExercisesInput) {
+                selectExeBool = true;
+                console.log(`selectExeBool is now ${selectExeBool}`);
+            } else {
+                selectSetBool = true;
+                console.log(`selectSetBool is now ${selectSetBool}`);
+            };
+
+            document.dispatchEvent(unlockGenBtnEvent);
+            
+        } else {
+            selectExeBool = false;
+            selectSetBool = false;
+            console.log(`selectExeBool is now ${selectExeBool}`);
+        };
+    });
+};
+
+
+
+
+
+//impide que se introduzcan mas de dos caracteres en los input de tipo number
+numberInputs.forEach(input => {
+    input.addEventListener('input', () => {
+        let inputValue = input.value;
+        if (inputValue.length > 2) {
+            inputValue = inputValue.slice(0, 2);
+            console.log("more than two characters!");
+            input.value = inputValue;
+        };    
+    });
+});
+/*
+let exeMin = document.getElementById("input-exe-min").value;
+let exeSec = document.getElementById("input-exe-sec").value;
+let setMin = document.getElementById("input-ser-min").value;
+let setSec = document.getElementById("input-ser-sec").value;
+let previous = 11;
+*/
 //hace que se respeten los min y max de los input number tags
 numberInputs.forEach(input => {
     input.addEventListener('blur', () => {
@@ -237,56 +314,53 @@ numberInputs.forEach(input => {
         const max = parseInt(input.getAttribute('max'));
         let value = parseInt(input.value);
         let id = input.id;
-        let foo = null;
-        let message = ""
+        let messageArray = null;
+        let message = "";
+
+        //si el input es número, selectExeBool o selectSetB se hace true, uno de
+        //los 4 booleanos requisitos para que el generate button se desbloquee
+        if(!isNaN(input.value) && input.value > input.getAttribute('min') && input.value < input.getAttribute('max')) {
+            console.log("an input number has been 'blured'");
+            numberBool = true;
+            document.dispatchEvent(unlockGenBtnEvent);
+        } else {
+            numberBool = false;
+            console.log("requirements weren't met. Please insert a valid input number");
+        };
         
         const pleaseMsg =  `Please set a number between ${min} and ${max}.`;
         const invalidMsg = `Please set a valid number.`;
 
-        const exeMaxMsg = `The max number of exercises is ${max}. `;
-        const exeMinMsg = `The min number of exercises is ${min}. `;
-        const exeArray = [exeMinMsg, exeMaxMsg];
-
-        const setMaxMsg = `The max number of sets is ${max}. `;
-        const setMinMsg = `The min number of sets is ${min}. `;
-        const setArray = [setMinMsg, setMaxMsg];
-
-        const secMaxMsg = `The max number of seconds is ${max}. `;
-        const secMinMsg = `The min number of seconds ${min}. `;
+        const secMaxMsg = `The max number of seconds is ${max}.`;
+        const secMinMsg = `The min number of seconds ${min}.`;
         const secArray = [secMinMsg, secMaxMsg];
 
-        const minMaxMsg = `The max number of minutes is ${max}. `;
-        const minMinMsg = `The min number of minutes is ${min}. `;
+        const minMaxMsg = `The max number of minutes is ${max}.`;
+        const minMinMsg = `The min number of minutes is ${min}.`;
         const minArray = [minMinMsg, minMaxMsg];
 
         switch (id) {
-            case "number-exercises":
-                foo = exeArray;
-                break;
-            case "number-rounds":
-                foo = setArray;
-                break;
             case "input-exe-min":
-                foo = minArray;
+                messageArray = minArray;
                 break;
             case "input-ser-min":
-                foo = minArray;
+                messageArray = minArray;
                 break;
             case "input-exe-sec":
-                foo = secArray;
+                messageArray = secArray;
                 break;
             case "input-ser-sec":
-                foo = secArray;
+                messageArray = secArray;
         };
 
-
+        //muestra un popup message cuando se insertan valores menores/mayores a los límites
         if (value < min) {
             value = min;
-            message = foo[0];
+            message = messageArray[0];
             showPopup(message + pleaseMsg);
         } else if (value > max) {
             value = max;
-            message = foo[1];
+            message = messageArray[1];
             showPopup(message + pleaseMsg);
         } else if (isNaN(value)) {
             value = min;
@@ -294,7 +368,8 @@ numberInputs.forEach(input => {
         };
         console.log(message);
 
-        input.value = value;
+        
+        input.value = pad(value);
     });
 });
 
@@ -322,7 +397,11 @@ export {
     enableInputs,
     types,
     isTimerExe,
-    isTimerSer
+    isTimerSer,
+    radioBool,
+    numberBool,
+    selectExeBool,
+    selectSetBool
 };
 
 

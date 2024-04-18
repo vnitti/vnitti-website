@@ -134,7 +134,7 @@ body.wo-page {
 
 #inputs {
     display: grid;
-    grid-template-columns: 1.1fr 1fr; /* Two columns of equal width */
+    grid-template-columns: 1.25fr 0.75fr; /* Two columns of equal width */
     grid-gap: 10px; /* Optional gap between grid items */
 }
 
@@ -148,12 +148,6 @@ body.wo-page {
     margin-bottom: 5px;
   }
   
-  .number-input { /**/
-    width: 100px;
-    padding: 5px;
-
-    font-size: 20px;
-  }
   
   #ul-wo { /**/
     margin-top: 20px;
@@ -248,6 +242,20 @@ h4 {
     justify-content: center;
 }
 
+select {
+    width: 50px;
+    height: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield; /* for firefox */
+    appearance: textfield; /* override browser styles */
+    border: 0; /* Add border */
+    background-color: #c7d5e1;
+    
+    font-family: 'Monserrat',  sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
 
 
 
@@ -329,6 +337,10 @@ input[type="radio"] {
     margin-right: 5px;
   }
 
+.disabled-option {
+    display: none;
+}
+
 
 /* === POPUP MESSAGE === */
 
@@ -336,7 +348,7 @@ input[type="radio"] {
     display: none;
     position: absolute;
     width: 300px;
-    top: calc(100% - 500px);
+    top: calc(100% - 300px);
     left: 50%;
     transform: translateX(-50%);
     background-color: #8e9195;
