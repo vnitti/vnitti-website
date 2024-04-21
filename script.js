@@ -1,7 +1,7 @@
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
 let currentPage = window.location.href;
-
+console.log("aaaaaaa");
 
 // ===== ONLY FOR PIXELS PAGE =====
 if (currentPath === pixelsPath) {
@@ -20,6 +20,7 @@ if (currentPath === pixelsPath) {
         console.log("img selected");
     });
 };
+
 
 
 // ===== GENERAL =====
@@ -46,3 +47,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
 
 
+// ===== LANGUAGE SWAPPING =====
+/*
+const englishDivs = document.querySelectorAll(".english");
+const spanishDivs = document.querySelectorAll(".spanish");
+
+englishDivs.forEach(div => {
+    div.style.display = "none";
+});
+*/
