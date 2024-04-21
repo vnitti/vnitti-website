@@ -1,7 +1,7 @@
 const currentPath = window.location.pathname;
 const pixelsPath = "pixelart.html";
 let currentPage = window.location.href;
-console.log("aaaaaaa");
+console.log("script.js loaded");
 
 // ===== ONLY FOR PIXELS PAGE =====
 if (currentPath === pixelsPath) {
