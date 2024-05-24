@@ -2,7 +2,7 @@
 
 ## Website
 ### HTML and CSS
-- [] Style for EN-SP buttons
+- [x] Style for EN-SP buttons
 - [] Add pixel art section
 
 
