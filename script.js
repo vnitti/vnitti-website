@@ -57,11 +57,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         aEn.classList.add("active-menu-btn");
     } else {
         aSp.classList.add("active-menu-btn");
-    }
-/*
-    languageAnchors.forEach(a => {
-
-    })*/
+    };
 });
 
 
