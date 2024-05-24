@@ -1,24 +1,28 @@
 const currentPath = window.location.pathname;
-const pixelsPath = "pixelart.html";
+const pixelsPathEn = "/en/pixelart/";
+const pixelsPathSp = "/sp/pixelart/";
 let currentPage = window.location.href;
 console.log("script.js loaded");
 
 // ===== ONLY FOR PIXELS PAGE =====
-if (currentPath === pixelsPath) {
+console.log(currentPath);
+if (currentPath === pixelsPathEn || currentPath === pixelsPathSp) {
+    
     let galleryImg = document.querySelectorAll('.gallery img');
     let ex = document.querySelector('.ex');
 
     galleryImg.forEach(image => {
-        image.onclick = () => {
+        image.addEventListener("click", () => {
             document.querySelector('.popup-img').style.display = 'block';
             document.querySelector('.popup-img img').src = image.getAttribute('src');
-        }
+        });
     });
 
     ex.addEventListener('click', () => {
         document.querySelector('.popup-img').style.display = 'none';
-        console.log("img selected");
     });
+} else {
+    console.log("didn't work");
 };
 
 
@@ -47,7 +51,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const languageAnchors = document.querySelectorAll(".en-es-a");
-    console.log(languageAnchors);
     let aEn;
     let aSp;
 
@@ -62,10 +65,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
     });
 
     if (currentPath.substring(0, 3) === "/en") {
-        console.log("en!");
         aEn.classList.add("active-language-a");
     } else {
-        console.log("sp!");
         aSp.classList.add("active-language-a");
     };
 });
