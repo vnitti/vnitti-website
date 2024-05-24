@@ -46,17 +46,27 @@ document.addEventListener("DOMContentLoaded", ()=> {
 });
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    const languageAnchors = document.querySelectorAll(".a-en-es");
+    const languageAnchors = document.querySelectorAll(".en-es-a");
     console.log(languageAnchors);
+    let aEn;
+    let aSp;
 
-    const aEn = document.getElementById("a-en");
-    const aSp = document.getElementById("a-sp");
+    languageAnchors.forEach(a => {
+        if(a.innerHTML === "en") {
+            aEn = a;
+        };
+
+        if (a.innerHTML === "sp") {
+            aSp = a;
+        };
+    });
 
     if (currentPath.substring(0, 3) === "/en") {
         console.log("en!");
-        aEn.classList.add("active-menu-btn");
+        aEn.classList.add("active-language-a");
     } else {
-        aSp.classList.add("active-menu-btn");
+        console.log("sp!");
+        aSp.classList.add("active-language-a");
     };
 });
 

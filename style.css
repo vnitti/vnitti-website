@@ -71,17 +71,17 @@ li {
 }
   
 .menu-btn {
-    font-family: 'Hack', monospace;
+    font-family: inherit;
     font-weight: 1000;
-    font-size: 16px;
+    font-size: inherit;
     border: none;
-    background: none;
     cursor: pointer;
     padding: 12px 3px;
     margin: 0;
-    height: 100%;
-    color: rgb(143, 143, 143);
     user-select: none;
+    height: 100%;
+    background: none;
+    color: rgb(143, 143, 143);
 }
 
 .menu-btn:hover {
@@ -92,11 +92,7 @@ li {
     background-color: #2e2d2b;
     color: rgb(232, 237, 241);
 }
-/*
-.menu-btn .active-menu-a {
-    color: rgb(232, 237, 241);
-}
-*/
+
 .andand {
     font-style: italic;
     color: #bcbec0;
@@ -104,7 +100,7 @@ li {
 
 
 /* ===== LANGUAGE SWAPPING ===== */
-#en-es {
+.en-es {
     position: absolute;
     top: 10px; right: 20px;
     background-color: transparent;
@@ -112,15 +108,21 @@ li {
     margin: 0;
 }
 
-#en-es a {
+.en-es-a {
     cursor: pointer;
     text-decoration: none;
-    margin: 0;
+    margin: 0 0 0 5px;
     padding: 1px;
+    color: #2e2d2b;
 }
 
-#en-es a:hover {
+.en-es-a:hover {
     background-color: #bcbec0;
+}
+
+.active-language-a {
+    color: #e8edf1;
+    background-color: #2e2d2b;
 }
 
 
