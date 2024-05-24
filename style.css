@@ -92,11 +92,11 @@ li {
     background-color: #2e2d2b;
     color: rgb(232, 237, 241);
 }
-
+/*
 .menu-btn .active-menu-a {
     color: rgb(232, 237, 241);
 }
-
+*/
 .andand {
     font-style: italic;
     color: #bcbec0;
@@ -107,13 +107,18 @@ li {
 #en-es {
     position: absolute;
     top: 10px; right: 20px;
-background-color: transparent;
+    background-color: transparent;
     z-index: 100;
+    margin: 5px;
 }
 
 #en-es a {
-    color: #0e22ff;;
     cursor: pointer;
+    text-decoration: none;
+}
+
+#en-es a:hover {
+    background-color: #bcbec0;
 }
 
 

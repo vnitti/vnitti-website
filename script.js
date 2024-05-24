@@ -45,6 +45,24 @@ document.addEventListener("DOMContentLoaded", ()=> {
     });
 });
 
+document.addEventListener("DOMContentLoaded", ()=> {
+    const languageAnchors = document.querySelectorAll(".a-en-es");
+    console.log(languageAnchors);
+
+    const aEn = document.getElementById("a-en");
+    const aSp = document.getElementById("a-sp");
+
+    if (currentPath.substring(0, 3) === "/en") {
+        console.log("en!");
+        aEn.classList.add("active-menu-btn");
+    } else {
+        aSp.classList.add("active-menu-btn");
+    }
+/*
+    languageAnchors.forEach(a => {
+
+    })*/
+});
 
 
 // ===== LANGUAGE SWAPPING =====
