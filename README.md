@@ -2,21 +2,15 @@
 
 ## Website
 ### HTML and CSS
-- [x] Style for EN-SP buttons
 - [] Add pixel art section
+- [] Add email link
 
 
 
 ## Workout app v1:
 ### HTML and CSS
-- [x] Translate HTML text to Spanish
-- [x] Isolate the stylesheet of the workout app to its own .css file
-- [x] Favicon
-- [x] Each html in its own folder and then rename them all to index.html. Also change the
-href of all the anchors
 
 ### JavaScript
-- [x] Create code to language swapping EN-SP
 - [] Make all the verification bools false once "quit" btn is clicked
 - [] New function that detects if the just typed character inside the input type="number"
 is a number, with the exceptions of ".", "-" and ",". If the character is one of these
