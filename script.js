@@ -13,6 +13,7 @@ if (currentPath === pixelsPathEn || currentPath === pixelsPathSp) {
 
     galleryImg.forEach(image => {
         image.addEventListener("click", () => {
+            console.log("IMAGE CLICKED!")
             document.querySelector('.popup-img').style.display = 'block';
             document.querySelector('.popup-img img').src = image.getAttribute('src');
         });
