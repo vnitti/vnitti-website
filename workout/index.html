@@ -1,177 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <title>PPL workout - vnitti</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>PPL Workout Generator</title>
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <link rel="stylesheet" href="../../fonts/web/hack-subset.css">
+    <link rel="icon" href="../../images/favicon.ico?" type="image/x-icon">
 </head>
-<body class="wo-page">
-    <main class="container-wo">
-        <section class="projects">
+<body>
 
-            <header class="title-wo">
-                <h1>PPL Workout Generator</h1>
-                <h4>v0.9</h4>
-            </header>
+    <main>
+        <p>redirecting to https://ppl-workout.vnitti.com...</p>
+    </main>
 
-            <div class="section">
-                <div id="fieldset-types">                
-                    <h4>What day is it today?</h4>       
-                    <div class="wo-type-option">
-                        <input id="push-input" type="radio" value="push-input" name="types" class="input" />
-                        <label for="push-input">Push Day</label>
-                    </div>
-                    <br>
-                    <div class="wo-type-option">
-                        <input id="pull-input" type="radio" value="pull-input" name="types" class="input" />
-                        <label for="pull-input">Pull Day</label>
-                    </div>
-                    <br>           
-                    <div class="wo-type-option">
-                        <input id="leg-input" type="radio"  value="leg-input" name="types" class="input" />
-                        <label for="leg-input">Leg Day</label>     
-                    </div>
-                </div>
-         
-                <div id="inputs">
-                    <div class="left">                            
-    
-                        <div class="input-div">
-                            <h4>Number of exercises:</h4>                                                   
-                        </div>
-        
-                        <div class="input-div">
-                            <h4>Number of sets: </h4>                                                   
-                        </div>
-        
-                        <div class="input-div">
-                            <h4>Rest between exercises: </h4>
-                        </div>
-        
-                        <div class="input-div">
-                            <h4>Rest between sets: </h4>
-                        </div>
-                    </div>
-
-                    <div class="right">      
-                        <div class="input-div">
-                            <select name="number-exercises" id="number-exercises" class="input">
-                                <option value="" class="disabled-option" disabled selected>-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>                                                  
-                        </div>
-        
-                        <div class="input-div">
-                            <select name="number-rounds" id="number-rounds" class="input">
-                                <option value="" class="disabled-option" disabled selected>-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>                                                  
-                        </div>
-        
-                        <div class="input-div">
-                            <label for="input-exe-min"></label>
-                            <input type="number" class="input" id="input-exe-min" min="0" max="10" value="00" />                              
-                            <span class="colon">:</span>
-                            <label for="input-exe-sec"></label>
-                            <input type="number" class="input" id="input-exe-sec" min="0" max="59" value="15" />                              
-                        </div>
-        
-                        <div class="input-div">
-                            <label for="input-ser-min"></label>
-                            <input type="number" class="input" id="input-ser-min" min="0" max="10" value="02" />
-                            <span class="colon">:</span>
-                            <label for="input-ser-sec"></label>
-                            <input type="number" class="input" id="input-ser-sec" min="0" max="59" value="30" />
-                        </div>
-                    </div>
-                </div>
-                <div id="generate-div">
-                    <button id="generate">Generate Workout</button>
-                </div>
-            </div>
-
-            <div class="section">                                 
-                <span id="wo-today">Your work out is: </span>
-                <ul id="ul-wo"></ul>
-                <div class="button-group">
-                    <div>
-                        <button id="start-btn" class="display-btn">Start</button>
-                        <button id="next-btn" class="display-btn">Next</button>
-                        <button id="resume-btn" class="display-btn">Resume</button>
-                        <button id="pause-btn" class="display-btn">Pause</button>
-                        <button id="reset-btn" class="display-btn">Quit</button>
-                    </div>
-                    <div class="chrono-div">
-                        <span>Elapsed time: </span>
-                        <span id="chrono-display">00:00:00:00</span>
-                    </div>
-                    <div>
-                        <span id="timer-ser-display"></span>     
-                        <span id="timer-exe-display"></span>  
-                        <span id="active"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>About</h3>
-                <p>
-                    <strong>PPL Workout Generator</strong> is a small app that will help you to generate
-                    daily randomized workouts following the Pull-Push-Leg principle. Also, it will guide
-                    you through your workout so you don't lose count on the exercises, rest times and the
-                    total duration.
-                </p>
-                <p>
-                    This app only includes exercises that can be done with body weight, dumbells, elastic
-                    bands or exercises that can be done with machinery that can be substituted with any of the
-                    previous elements. Exercises that are meant to be done only with gym machinery are not
-                    included.
-                </p>
-                <p>
-                    Developed by Vicente Nitti using HTML, CSS and JavaScript. Check his
-                    <a class="a-wo-home" href="../en/index.html">website here</a>.
-                </p>
-                <br>
-                <h3>Instructions</h3>
-                <p>
-                    1. Select the type of exercise you want
-                    <br>
-                    2. Select the number of exercises and sets
-                    <br>
-                    3. Specify the rest times between exercises and sets
-                    <br>
-                    4. When you are set, press the "Generate Workout" button
-                    <br>
-                    5. Press "Start" to start your workout
-                    <br>
-                    6. You can skip to the next element of the list, pause, resume or quit your workout
-                    with the panel button
-                </p>
-            </div>
-
-            <div id="popup-msg">popuppp</div>
-            
-        </section>
-    </main>  
-    <script type="module" src="index.js"></script>
+    <script>
+        window.location.href = 'https://ppl-workout.vnitti.com';
+    </script>
 </body>
 </html>
